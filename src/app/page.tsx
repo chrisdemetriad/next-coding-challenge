@@ -20,7 +20,7 @@ function ItemCount({ count, name }: { count: number; name: string }) {
 export default function Home() {
 	const [items, setItems] = useState<{ name: string; quantity: number }[]>([]);
 	let itemCount = 0;
-	const itemCounts = {};
+	const itemCounts: Record<string, number> = {};
 
 	for (const item of items) {
 		itemCount += item.quantity;
