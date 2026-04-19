@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import type { UKProduct } from "../data/products";
-import ItemQuantity from "./components/item-quantity";
+import type { UKProduct } from "../../data/products";
+import ItemQuantity from "../components/item-quantity";
+import { useCart } from "../store/cart-store";
 import styles from "./page.module.css";
-import { useCart } from "./store/cart-store";
 
 export default function HomePageClient({
 	products,

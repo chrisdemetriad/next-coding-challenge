@@ -1,5 +1,5 @@
 import { fetchProducts } from "../data/products";
-import HomePageClient from "./home-page-client";
+import HomePageClient from "./homepage/homepage-client";
 
 export default async function Home() {
 	const products = await fetchProducts();

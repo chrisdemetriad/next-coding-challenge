@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "../cart-store";
+import { useCart } from "../store/cart-store";
 
 const CheckoutPage = () => {
 	const { items, total } = useCart();
