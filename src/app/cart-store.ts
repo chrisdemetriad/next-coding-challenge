@@ -37,18 +37,18 @@ export function useCart(): Data {
 	const items = useStore((state) => state.items);
 	const addToCart = useStore((state) => state.addToCart);
 	let total = 0;
-	// @TODO find a better namne for itemCounts, don't like it much
-	const itemCounts: Record<string, number> = {};
+
+	const itemQuantities: Record<string, number> = {};
 
 	for (const item of items) {
 		total += item.quantity;
-		itemCounts[item.name] = item.quantity;
+		itemQuantities[item.name] = item.quantity;
 	}
 
 	return {
 		items,
 		total,
-		itemCounts,
+		itemQuantities,
 		addToCart,
 	};
 }
@@ -66,6 +66,6 @@ type Item = {
 type Data = {
 	items: Item[];
 	total: number;
-	itemCounts: Record<string, number>;
+	itemQuantities: Record<string, number>;
 	addToCart: (product: string) => void;
 };

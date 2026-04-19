@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { UKProduct } from "../data/products";
 import { useCart } from "./cart-store";
-import ItemCount from "./item-count";
+import ItemQuantity from "./item-quantity";
 import styles from "./page.module.css";
 
 export default function HomePageClient({
@@ -11,7 +11,7 @@ export default function HomePageClient({
 }: {
 	products: UKProduct[];
 }) {
-	const { total, itemCounts, addToCart } = useCart();
+	const { total, itemQuantities, addToCart } = useCart();
 
 	const basketTitle = `Basket: ${total} ${total === 1 ? "item" : "items"}`;
 
@@ -24,10 +24,10 @@ export default function HomePageClient({
 						{basketTitle}
 					</Link>
 					{products.map((product) => (
-						<ItemCount
+						<ItemQuantity
 							key={product.id}
 							name={product.name}
-							count={itemCounts[product.name] || 0}
+							count={itemQuantities[product.name] || 0}
 						/>
 					))}
 				</div>
