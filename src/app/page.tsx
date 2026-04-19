@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useCart } from "./cart-store";
 import styles from "./page.module.css";
 
@@ -32,9 +33,9 @@ export default function Home() {
 			<div className={styles.description}>
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
-					<button type="button" className={styles.basket}>
+					<Link href="/checkout" className={styles.basket}>
 						{basketTitle}
-					</button>
+					</Link>
 					{products.map((product) => (
 						<ItemCount
 							key={product.name}
