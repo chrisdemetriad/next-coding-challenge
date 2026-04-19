@@ -11,7 +11,7 @@ const products = [
 
 function ItemCount({ count, name }: { count: number; name: string }) {
 	return (
-		<div key={name}>
+		<div>
 			{name} count: {count}
 		</div>
 	);
