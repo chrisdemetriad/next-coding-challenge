@@ -11,12 +11,7 @@ export default function HomePageClient({
 }: {
 	products: UKProduct[];
 }) {
-	const { items, itemCounts, addToCart } = useCart();
-	let total = 0;
-
-	for (const item of items) {
-		total += item.quantity;
-	}
+	const { total, itemCounts, addToCart } = useCart();
 
 	const basketTitle = `Basket: ${total} ${total === 1 ? "item" : "items"}`;
 

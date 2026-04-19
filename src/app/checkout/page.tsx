@@ -3,11 +3,12 @@
 import { useCart } from "../cart-store";
 
 const CheckoutPage = () => {
-	const { items } = useCart();
+	const { items, total } = useCart();
 
 	return (
 		<>
 			<p>Checkout page</p>
+			<p>Total items: {total}</p>
 			{items.length === 0 ? (
 				<p>Basket is empty</p>
 			) : (
