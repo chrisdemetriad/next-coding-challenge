@@ -33,9 +33,7 @@ export default function Home() {
 			<div className={styles.description}>
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
-					<Link href="/checkout" className={styles.basket}>
-						{basketTitle}
-					</Link>
+					<Link href="/checkout">{basketTitle}</Link>
 					{products.map((product) => (
 						<ItemCount
 							key={product.name}
