@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCart } from "./cart-store";
 import styles from "./page.module.css";
 
 const products = [
@@ -18,31 +18,14 @@ function ItemCount({ count, name }: { count: number; name: string }) {
 }
 
 export default function Home() {
-	const [items, setItems] = useState<{ name: string; quantity: number }[]>([]);
-	let itemCount = 0;
-	const itemCounts: Record<string, number> = {};
+	const { items, itemCounts, addToCart } = useCart();
+	let total = 0;
 
 	for (const item of items) {
-		itemCount += item.quantity;
-		itemCounts[item.name] = item.quantity;
+		total += item.quantity;
 	}
 
-	const baskedTitle = `Basket: ${itemCount} ${itemCount === 1 ? "item" : "items"}`;
-
-	const addToCart = (product: string) => {
-		const alreadyInCart = items.find((item) => item.name === product);
-		if (alreadyInCart) {
-			setItems((items) =>
-				items.map((item) =>
-					item.name === product
-						? { ...item, quantity: item.quantity + 1 }
-						: item,
-				),
-			);
-		} else {
-			setItems([...items, { name: product, quantity: 1 }]);
-		}
-	};
+	const baskedTitle = `Basket: ${total} ${total === 1 ? "item" : "items"}`;
 
 	return (
 		<main className={styles.main}>
