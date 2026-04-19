@@ -27,6 +27,8 @@ export default function Home() {
 		itemCounts[item.name] = item.quantity;
 	}
 
+	const baskedTitle = `Basket: ${itemCount} ${itemCount === 1 ? "item" : "items"}`;
+
 	const addToCart = (product: string) => {
 		const alreadyInCart = items.find((item) => item.name === product);
 		if (alreadyInCart) {
@@ -48,7 +50,7 @@ export default function Home() {
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
 					<button type="button" className={styles.basket}>
-						Basket: {itemCount} items
+						{baskedTitle}
 					</button>
 					{products.map((product) => (
 						<ItemCount
