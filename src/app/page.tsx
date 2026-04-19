@@ -25,7 +25,7 @@ export default function Home() {
 		total += item.quantity;
 	}
 
-	const baskedTitle = `Basket: ${total} ${total === 1 ? "item" : "items"}`;
+	const basketTitle = `Basket: ${total} ${total === 1 ? "item" : "items"}`;
 
 	return (
 		<main className={styles.main}>
@@ -33,7 +33,7 @@ export default function Home() {
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
 					<button type="button" className={styles.basket}>
-						{baskedTitle}
+						{basketTitle}
 					</button>
 					{products.map((product) => (
 						<ItemCount
