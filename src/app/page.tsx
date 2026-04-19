@@ -20,9 +20,11 @@ function ItemCount({ count, name }: { count: number; name: string }) {
 export default function Home() {
 	const [items, setItems] = useState<{ name: string; quantity: number }[]>([]);
 	let itemCount = 0;
+	const itemCounts = {};
 
 	for (const item of items) {
 		itemCount += item.quantity;
+		itemCounts[item.name] = item.quantity;
 	}
 
 	const addToCart = (product: string) => {
@@ -48,22 +50,10 @@ export default function Home() {
 					<button type="button" className={styles.basket}>
 						Basket: {itemCount} items
 					</button>
-					<ItemCount
-						name="Item 1"
-						count={items.find((item) => item.name === "Item 1")?.quantity || 0}
-					/>
-					<ItemCount
-						name="Item 2"
-						count={items.find((item) => item.name === "Item 2")?.quantity || 0}
-					/>
-					<ItemCount
-						name="Item 3"
-						count={items.find((item) => item.name === "Item 3")?.quantity || 0}
-					/>
-					<ItemCount
-						name="Item 4"
-						count={items.find((item) => item.name === "Item 4")?.quantity || 0}
-					/>
+					<ItemCount name="Item 1" count={itemCounts["Item 1"] || 0} />
+					<ItemCount name="Item 2" count={itemCounts["Item 2"] || 0} />
+					<ItemCount name="Item 3" count={itemCounts["Item 3"] || 0} />
+					<ItemCount name="Item 4" count={itemCounts["Item 4"] || 0} />
 				</div>
 			</div>
 
