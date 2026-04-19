@@ -3,15 +3,8 @@
 import Link from "next/link";
 import type { UKProduct } from "../data/products";
 import { useCart } from "./cart-store";
+import ItemCount from "./item-count";
 import styles from "./page.module.css";
-
-function ItemCount({ count, name }: { count: number; name: string }) {
-	return (
-		<div>
-			{name} count: {count}
-		</div>
-	);
-}
 
 export default function HomePageClient({
 	products,
