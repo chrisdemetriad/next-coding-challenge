@@ -24,7 +24,13 @@ export default function Home() {
 	const addToCart = (product: string) => {
 		const alreadyInCart = items.find((item) => item.name === product);
 		if (alreadyInCart) {
-			// @TODO need to find out how to update cart items
+			setItems((items) =>
+				items.map((item) =>
+					item.name === product
+						? { ...item, quantity: item.quantity + 1 }
+						: item,
+				),
+			);
 		} else {
 			setItems([...items, { name: product, quantity: 1 }]);
 		}
