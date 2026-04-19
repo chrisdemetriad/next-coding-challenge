@@ -11,7 +11,7 @@ const products = [
 
 function ItemCount({ count, name }: { count: number; name: string }) {
 	return (
-		<div>
+		<div key={name}>
 			{name} count: {count}
 		</div>
 	);
@@ -36,7 +36,9 @@ export default function Home() {
 			<div className={styles.description}>
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
-					<button className={styles.basket}>Basket: {itemCount} items</button>
+					<button type="button" className={styles.basket}>
+						Basket: {itemCount} items
+					</button>
 					<ItemCount
 						name="Item 1"
 						count={items.find((item) => item.name === "Item 1")?.quantity || 0}
