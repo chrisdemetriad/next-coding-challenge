@@ -50,10 +50,13 @@ export default function Home() {
 					<button type="button" className={styles.basket}>
 						Basket: {itemCount} items
 					</button>
-					<ItemCount name="Item 1" count={itemCounts["Item 1"] || 0} />
-					<ItemCount name="Item 2" count={itemCounts["Item 2"] || 0} />
-					<ItemCount name="Item 3" count={itemCounts["Item 3"] || 0} />
-					<ItemCount name="Item 4" count={itemCounts["Item 4"] || 0} />
+					{products.map((product) => (
+						<ItemCount
+							key={product.name}
+							name={product.name}
+							count={itemCounts[product.name] || 0}
+						/>
+					))}
 				</div>
 			</div>
 
