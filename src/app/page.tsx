@@ -19,7 +19,11 @@ function ItemCount({ count, name }: { count: number; name: string }) {
 
 export default function Home() {
 	const [items, setItems] = useState<{ name: string; quantity: number }[]>([]);
-	const [itemCount, setItemCount] = useState<number>(0);
+	let itemCount = 0;
+
+	for (const item of items) {
+		itemCount += item.quantity;
+	}
 
 	const addToCart = (product: string) => {
 		const alreadyInCart = items.find((item) => item.name === product);
@@ -34,7 +38,6 @@ export default function Home() {
 		} else {
 			setItems([...items, { name: product, quantity: 1 }]);
 		}
-		setItemCount(itemCount + 1);
 	};
 
 	return (
