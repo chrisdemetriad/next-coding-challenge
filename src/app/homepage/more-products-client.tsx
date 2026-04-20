@@ -11,6 +11,10 @@ export default function MoreProductsClient({
 }) {
 	const { addToCart } = useCart();
 
+	if (products.length === 0) {
+		return null;
+	}
+
 	return (
 		<>
 			<p>More products from a different source</p>
