@@ -20,7 +20,10 @@ export default function CheckoutClient({
 			<div className={styles.description}>
 				<p>Checkout page</p>
 				<p>Total items: {total}</p>
-				<Link href={`/${region}`} className={`${styles.basket} ${styles.descriptionAction}`}>
+				<Link
+					href={`/${region}`}
+					className={`${styles.basket} ${styles.descriptionAction}`}
+				>
 					Back to products
 				</Link>
 			</div>
@@ -39,6 +42,9 @@ export default function CheckoutClient({
 							<div key={item.id} className={styles.checkoutItem}>
 								<h2>{product?.name || item.name}</h2>
 								<p>Quantity: {item.quantity}</p>
+								<p>
+									{product?.price !== null && <p>Price: {product?.price}</p>}
+								</p>
 							</div>
 						);
 					})

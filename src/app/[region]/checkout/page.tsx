@@ -19,9 +19,13 @@ export default async function CheckoutPage({
 		fetchMoreProducts(params.region),
 	]);
 
+	const unique = moreProducts.filter(
+		(mp) => !products.some((p) => p.name === mp.name && p.price === mp.price),
+	);
+
 	return (
 		<CheckoutClient
-			products={[...products, ...moreProducts]}
+			products={[...products, ...unique]}
 			region={params.region}
 		/>
 	);
