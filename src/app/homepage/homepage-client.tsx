@@ -9,9 +9,11 @@ import styles from "./page.module.css";
 
 export default function HomePageClient({
 	children,
+	region = "uk",
 	products,
 }: {
 	children?: ReactNode;
+	region?: "uk" | "us";
 	products: UKProduct[];
 }) {
 	const { total, itemQuantities, addToCart } = useCart();
@@ -23,7 +25,7 @@ export default function HomePageClient({
 			<div className={styles.description}>
 				<p>Michael&apos;s Amazing Web Store</p>
 				<div>
-					<Link href="/checkout" className={styles.basket}>
+					<Link href={`/${region}/checkout`} className={styles.basket}>
 						{basketTitle}
 					</Link>
 					{products.map((product) => (

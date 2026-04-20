@@ -11,7 +11,7 @@ export default async function Homepage({ region }: { region: Region }) {
 	// I initially combined both product sources but the second endpoint provides the same ids so I would either have to normaloise the data so every product has a truly unique id before rendering OR append a string to those new products keys so they won't conflict with the initial products. This approach would do for now as we put the products in two separate groups.
 
 	return (
-		<HomePageClient products={products}>
+		<HomePageClient products={products} region={region}>
 			{/* No spinners, I get it but we should really signify to the user more products are eventually coming, using a fallback? */}
 			<Suspense>
 				{/* Now my issue is that I have to filter out those products from the 2nd endpoint, that have the same name and price with the initial products (nevermind the ids issue which I ignore for now), which is why I am passing down the initialProducts to filter there so I can then only send the really unique products to the client. I prefer doing this in the server component as it's more performant rather than just doing it client side  */}
