@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { UKProduct } from "../../data/products";
 import ItemQuantity from "../components/item-quantity";
 import { useCart } from "../store/cart-store";
 import styles from "./page.module.css";
 
 export default function HomePageClient({
+	children,
 	products,
 }: {
+	children?: ReactNode;
 	products: UKProduct[];
 }) {
 	const { total, itemQuantities, addToCart } = useCart();
@@ -48,6 +51,8 @@ export default function HomePageClient({
 					</button>
 				))}
 			</div>
+			{/* more products coming from a suspended component below */}
+			{children}
 		</main>
 	);
 }
