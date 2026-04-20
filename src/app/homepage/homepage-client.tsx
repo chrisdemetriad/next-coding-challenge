@@ -28,15 +28,19 @@ export default function HomePageClient({
 				<Link href={`/${region}/checkout`} className={styles.basket}>
 					{basketTitle}
 				</Link>
-				<div>
-					{products.map((product) => (
-						<ItemQuantity
-							key={product.id}
-							name={product.name}
-							count={itemQuantities[product.id] || 0}
-						/>
-					))}
-				</div>
+				{total > 0 && (
+					<div>
+						{products
+							.filter((product) => (itemQuantities[product.id] || 0) > 0)
+							.map((product) => (
+								<ItemQuantity
+									key={product.id}
+									name={product.name}
+									count={itemQuantities[product.id]}
+								/>
+							))}
+					</div>
+				)}
 			</div>
 
 			<div className={styles.grid}>
