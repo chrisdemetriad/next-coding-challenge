@@ -13,7 +13,7 @@ const CheckoutPage = () => {
 				<p>Basket is empty</p>
 			) : (
 				items.map((item) => (
-					<p key={item.name}>
+					<p key={item.id}>
 						{item.name}: {item.quantity}
 					</p>
 				))

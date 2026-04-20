@@ -30,7 +30,7 @@ export default function HomePageClient({
 						<ItemQuantity
 							key={product.id}
 							name={product.name}
-							count={itemQuantities[product.name] || 0}
+							count={itemQuantities[product.id] || 0}
 						/>
 					))}
 				</div>
@@ -42,7 +42,7 @@ export default function HomePageClient({
 						type="button"
 						key={product.id}
 						className={styles.card}
-						onClick={() => addToCart(product.name)}
+						onClick={() => addToCart({ id: product.id, name: product.name })}
 					>
 						<h2>
 							{product.name} <span>-&gt;</span>

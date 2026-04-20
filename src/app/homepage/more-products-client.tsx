@@ -25,7 +25,7 @@ export default function MoreProductsClient({
 						// the appended p below isn't really needed but it's a defensive choice
 						key={`p-${product.id}`}
 						className={styles.card}
-						onClick={() => addToCart(product.name)}
+						onClick={() => addToCart({ id: product.id, name: product.name })}
 					>
 						<h2>
 							{product.name} <span>-&gt;</span>
