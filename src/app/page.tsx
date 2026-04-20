@@ -13,7 +13,9 @@ export default async function Home() {
 		<HomePageClient products={products}>
 			{/* No spinners, I get it but we should really signify to the user more products are eventually coming, using a fallback? */}
 			<Suspense>
-				<MoreProducts />
+				{/* Now my issue is that I have to filter out those products from the 2nd endpoint, that have the same name and price with the initial
+				products (nevermind the ids issue which I ignore for now), which is why I am passing down the initialProducts to filter there so I can then only send the really unique products to the client. I prefer doing this in the server component as it's more performant rather than just doing it client side  */}
+				<MoreProducts initialProducts={products} />
 			</Suspense>
 		</HomePageClient>
 	);
