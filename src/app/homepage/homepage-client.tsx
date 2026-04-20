@@ -24,10 +24,10 @@ export default function HomePageClient({
 		<main className={styles.main}>
 			<div className={styles.description}>
 				<p>Michael&apos;s Amazing Web Store</p>
+				<Link href={`/${region}/checkout`} className={styles.basket}>
+					{basketTitle}
+				</Link>
 				<div>
-					<Link href={`/${region}/checkout`} className={styles.basket}>
-						{basketTitle}
-					</Link>
 					{products.map((product) => (
 						<ItemQuantity
 							key={product.id}

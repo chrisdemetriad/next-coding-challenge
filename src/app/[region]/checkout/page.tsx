@@ -14,5 +14,5 @@ export default async function CheckoutPage({
 		fetchMoreProducts(params.region),
 	]);
 
-	return <CheckoutClient products={[...products, ...moreProducts]} />;
+	return <CheckoutClient products={[...products, ...moreProducts]} region={params.region} />;
 }

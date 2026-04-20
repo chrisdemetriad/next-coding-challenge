@@ -79,7 +79,8 @@ describe("app basics", () => {
 
 		expect(screen.getByText("Checkout page")).toBeInTheDocument();
 		expect(screen.getByText("Total items: 2")).toBeInTheDocument();
-		expect(screen.getByText("Wireless Headsets: 2")).toBeInTheDocument();
+		expect(screen.getAllByText("Wireless Headsets").length).toBeGreaterThan(0);
+		expect(screen.getByText("Quantity: 2")).toBeInTheDocument();
 	});
 
 	it("adds two different products and shows the combined basket total", () => {

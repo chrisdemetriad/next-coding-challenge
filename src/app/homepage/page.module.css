@@ -10,7 +10,7 @@
 .description {
   display: inherit;
   justify-content: inherit;
-  align-items: inherit;
+  align-items: baseline;
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
@@ -41,6 +41,15 @@
   width: var(--max-width);
 }
 
+.checkoutList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 100%;
+  width: var(--max-width);
+}
+
 .basket,
 .card {
   cursor: pointer;
@@ -51,6 +60,10 @@
   font-family: inherit;
   text-align: left;
   transition: background 200ms, border 200ms;
+}
+
+.checkoutItem {
+  width: 100%;
 }
 
 .card span {
@@ -103,9 +116,19 @@
     text-align: center;
   }
 
+  .checkoutList {
+    margin-bottom: 120px;
+    max-width: 320px;
+    text-align: center;
+  }
+
   .basket,
   .card {
     padding: 1rem 2.5rem;
+  }
+
+  .checkoutItem {
+    width: 100%;
   }
 
   .card h2 {
