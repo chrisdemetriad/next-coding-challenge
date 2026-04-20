@@ -42,9 +42,8 @@ export default function CheckoutClient({
 							<div key={item.id} className={styles.checkoutItem}>
 								<h2>{product?.name || item.name}</h2>
 								<p>Quantity: {item.quantity}</p>
-								<p>
-									{product?.price !== null && <p>Price: {product?.price}</p>}
-								</p>
+
+								{product?.price !== null && <p>Price: {product?.price}</p>}
 							</div>
 						);
 					})

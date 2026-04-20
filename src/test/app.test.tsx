@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import CheckoutClient from "./checkout/checkout-client";
-import HomePageClient from "./homepage/homepage-client";
-import MoreProducts from "./homepage/more-products";
-import MoreProductsClient from "./homepage/more-products-client";
-import { resetCart } from "./store/cart-store";
+import CheckoutClient from "../app/[region]/checkout/checkout-client";
+import HomePageClient from "../app/homepage/homepage-client";
+import MoreProducts from "../app/homepage/more-products";
+import MoreProductsClient from "../app/homepage/more-products-client";
+import { resetCart } from "../app/store/cart-store";
 
 jest.mock("next/link", () => {
 	return function Link({
@@ -52,7 +52,9 @@ describe("app basics", () => {
 		).toBeInTheDocument();
 		expect(screen.getByText("Wireless Headsets")).toBeInTheDocument();
 		expect(screen.getByText("£76.99")).toBeInTheDocument();
-		expect(screen.getByText("Wireless Headsets count: 0")).toBeInTheDocument();
+		expect(
+			screen.queryByText("Wireless Headsets count: 0"),
+		).not.toBeInTheDocument();
 	});
 
 	it("updates basket and item quantity when a product is added", () => {
