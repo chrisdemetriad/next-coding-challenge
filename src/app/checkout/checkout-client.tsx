@@ -18,13 +18,11 @@ export default function CheckoutClient({
 	return (
 		<main className={styles.main}>
 			<div className={styles.description}>
-				<p>Michael's Amazing Web Store - Checkout</p>
+				<p>Checkout page</p>
 				<p>Total items: {total}</p>
-				<div>
-					<Link href={`/${region}`} className={styles.basket}>
-						Back to products
-					</Link>
-				</div>
+				<Link href={`/${region}`} className={`${styles.basket} ${styles.descriptionAction}`}>
+					Back to products
+				</Link>
 			</div>
 
 			<div className={styles.checkoutList}>
