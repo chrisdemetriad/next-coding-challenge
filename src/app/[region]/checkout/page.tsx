@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { fetchMoreProducts, fetchProducts } from "../../../data/products";
 import { isRegion } from "../../../data/regions";
-import CheckoutClient from "../../checkout/checkout-client";
+import CheckoutClient from "./checkout-client";
 
 export default async function CheckoutPage({
 	params,
