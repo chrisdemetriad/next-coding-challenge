@@ -1,6 +1,6 @@
 import { type Region, regionConfig } from "./regions";
 
-export async function fetchProducts(region: Region): Promise<UKProduct[]> {
+export async function fetchProducts(region: Region): Promise<Product[]> {
 	const response = await fetch("https://v0-api-endpoint-request.vercel.app/api/products", {
 		cache: "no-store",
 	});
@@ -20,7 +20,7 @@ export async function fetchProducts(region: Region): Promise<UKProduct[]> {
 	}));
 }
 
-export async function fetchMoreProducts(region: Region): Promise<UKProduct[]> {
+export async function fetchMoreProducts(region: Region): Promise<Product[]> {
 	const response = await fetch("https://v0-api-endpoint-request.vercel.app/api/more-products", {
 		cache: "no-store",
 	});
@@ -58,7 +58,7 @@ type ProductsRes = {
 	products: GenericProduct[];
 };
 
-export type UKProduct = {
+export type Product = {
 	id: number;
 	name: string;
 	price: string;

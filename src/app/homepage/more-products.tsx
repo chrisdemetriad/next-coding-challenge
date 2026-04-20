@@ -1,4 +1,4 @@
-import type { UKProduct } from "../../data/products";
+import type { Product } from "../../data/products";
 import { fetchMoreProducts } from "../../data/products";
 import type { Region } from "../../data/regions";
 import MoreProductsClient from "./more-products-client";
@@ -7,7 +7,7 @@ export default async function MoreProducts({
 	initialProducts,
 	region,
 }: {
-	initialProducts: UKProduct[];
+	initialProducts: Product[];
 	region: Region;
 }) {
 	const products = await fetchMoreProducts(region);

@@ -7,7 +7,7 @@ export const regionConfig: Record<
     {
         currency: "GBP" | "USD";
         currencyKey: "gbp" | "usd";
-        locale: "en-GB" | "en-us";
+        locale: "en-GB" | "en-US";
         nameKey: "uk" | "us";
     }
 > = {
@@ -20,7 +20,7 @@ export const regionConfig: Record<
     us: {
         currency: "USD",
         currencyKey: "usd",
-        locale: "en-us",
+        locale: "en-US",
         nameKey: "us",
     },
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { UKProduct } from "../../data/products";
+import type { Product } from "../../data/products";
 import type { Region } from "../../data/regions";
 import styles from "../homepage/page.module.css";
 import { useCart } from "../store/cart-store";
@@ -10,7 +10,7 @@ export default function CheckoutClient({
 	products,
 	region = "uk",
 }: {
-	products: UKProduct[];
+	products: Product[];
 	region?: Region;
 }) {
 	const { items, total } = useCart();

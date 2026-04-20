@@ -1,13 +1,13 @@
 "use client";
 
-import type { UKProduct } from "../../data/products";
+import type { Product } from "../../data/products";
 import { useCart } from "../store/cart-store";
 import styles from "./page.module.css";
 
 export default function MoreProductsClient({
 	products,
 }: {
-	products: UKProduct[];
+	products: Product[];
 }) {
 	const { addToCart } = useCart();
 

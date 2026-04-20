@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { UKProduct } from "../../data/products";
+import type { Product } from "../../data/products";
+import type { Region } from "../../data/regions";
 import ItemQuantity from "../components/item-quantity";
 import { useCart } from "../store/cart-store";
 import styles from "./page.module.css";
@@ -13,8 +14,8 @@ export default function HomePageClient({
 	products,
 }: {
 	children?: ReactNode;
-	region?: "uk" | "us";
-	products: UKProduct[];
+	region?: Region;
+	products: Product[];
 }) {
 	const { total, itemQuantities, addToCart } = useCart();
 
