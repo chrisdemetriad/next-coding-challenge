@@ -1,4 +1,6 @@
-export async function fetchProducts(): Promise<UKProduct[]> {
+import { type Region, regionConfig } from "./regions";
+
+export async function fetchProducts(region: Region): Promise<UKProduct[]> {
 	const response = await fetch("https://v0-api-endpoint-request.vercel.app/api/products", {
 		cache: "no-store",
 	});
@@ -8,16 +10,17 @@ export async function fetchProducts(): Promise<UKProduct[]> {
 	}
 
 	const data = (await response.json()) as ProductsRes;
+	const config = regionConfig[region];
 
 	return data.products.map((product) => ({
 		id: product.id,
-		name: product.name.uk,
-		price: formatGbp(product.price.gbp),
+		name: product.name[config.nameKey],
+		price: formatPrice(product.price[config.currencyKey], config.locale, config.currency),
 		stock: product.stock,
 	}));
 }
 
-export async function fetchMoreProducts(): Promise<UKProduct[]> {
+export async function fetchMoreProducts(region: Region): Promise<UKProduct[]> {
 	const response = await fetch("https://v0-api-endpoint-request.vercel.app/api/more-products", {
 		cache: "no-store",
 	});
@@ -27,11 +30,12 @@ export async function fetchMoreProducts(): Promise<UKProduct[]> {
 	}
 
 	const data = (await response.json()) as ProductsRes;
+	const config = regionConfig[region];
 
 	return data.products.map((product) => ({
 		id: product.id,
-		name: product.name.uk,
-		price: formatGbp(product.price.gbp),
+		name: product.name[config.nameKey],
+		price: formatPrice(product.price[config.currencyKey], config.locale, config.currency),
 		stock: product.stock,
 	}));
 }
@@ -61,9 +65,9 @@ export type UKProduct = {
 	stock: number;
 };
 
-function formatGbp(amount: number) {
-	return new Intl.NumberFormat("en-GB", {
+function formatPrice(amount: number, locale: string, currency: string) {
+	return new Intl.NumberFormat(locale, {
 		style: "currency",
-		currency: "GBP",
+		currency,
 	}).format(amount);
 }

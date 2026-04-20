@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
-import Home from "../page";
-
-const regions = ["uk", "us"] as const;
-type Region = (typeof regions)[number];
+import { isRegion } from "../../data/regions";
+import Homepage from "../homepage/homepage";
 
 export default function RegionPage({
 	params,
@@ -11,9 +9,9 @@ export default function RegionPage({
 		region: string;
 	};
 }) {
-	if (!regions.includes(params.region as Region)) {
+	if (!isRegion(params.region)) {
 		notFound();
 	}
 
-	return <Home />;
+	return <Homepage region={params.region} />;
 }
