@@ -57,6 +57,10 @@ export function useCart(): Data {
 	};
 }
 
+export function resetCart() {
+	useStore.setState({ items: [] });
+}
+
 type Store = {
 	items: Item[];
 	addToCart: (product: Product) => void;
